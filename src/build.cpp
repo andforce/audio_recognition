@@ -35,10 +35,10 @@ int Initialize(){
 int ProcessBuildRes(const char *szResDir, const char *szResPath){
   int index = 0;
   char audioname[80];
-  char basepath[80];
+  char basepath[80] = "/home/pc/src/github/audio_recognition/bin/samples/";
   fstream fs_in;
   fs_in.open(szResDir, std::fstream::in);
-  fs_in.getline(basepath, 80);
+  //fs_in.getline(basepath, 80);
   while (fs_in.getline(audioname, 80)) {
     // add to hash
     myhash.AddSongList(audioname); 
@@ -67,7 +67,7 @@ main( int argc, char **argv )
 {
     Initialize();
     //ADD your own paths here!!!
-    ProcessBuildRes(argv[1], argv[2]);
+    ProcessBuildRes("/home/pc/src/github/audio_recognition/bin/dataset.txt", "./database");
     unInitialize();
     return 0;
 }
